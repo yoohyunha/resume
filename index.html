@@ -1,269 +1,143 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>유현하 이력서</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .menu-toggle {
-      display: none;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1100;
-      background: teal;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .sidebar {
-      width: 200px;
-      background-color: #fff;
-      padding: 20px;
-      border-right: 1px solid #ddd;
-      overflow-y: auto;
-      height: 100vh;
-      box-sizing: border-box;
-      flex-shrink: 0;
-      position: sticky;
-      top: 0;
-      align-self: flex-start;
-      transition: left 0.3s ease;
-    }
-
-    .sidebar h3 {
-      font-size: 16px;
-      margin-bottom: 10px;
-      color: teal;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .sidebar ul li {
-      margin: 10px 0;
-      cursor: pointer;
-    }
-
-    .sidebar ul li a {
-      color: #333;
-      text-decoration: none;
-    }
-
-    .sidebar ul li a.active {
-      font-weight: bold;
-      color: teal;
-    }
-
-    .sidebar ul li a:hover {
-      text-decoration: underline;
-    }
-
-    .content {
-      flex: 1;
-      padding: 40px;
-      background-color: #fff;
-      overflow-y: auto;
-      height: 100vh;
-      box-sizing: border-box;
-    }
-
-    .section {
-      margin-bottom: 40px;
-    }
-
-    .section h2 {
-      border-bottom: 2px solid #000;
-      padding-bottom: 5px;
-      font-size: 20px;
-    }
-
-    .profile {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .highlight {
-      font-size: 26px;
-      font-weight: bold;
-    }
-
-    .subinfo {
-      color: #555;
-    }
-
-    .photo {
-      width: 150px;
-      height: 150px;
-      border: 2px solid #ccc;
-      object-fit: cover;
-    }
-
-    a {
-      color: teal;
-      text-decoration: none;
-    }
-
-    .url-box {
-      border: 1px solid #ccc;
-      padding: 10px;
-      background-color: #f0f0f0;
-      font-family: monospace;
-      word-break: break-all;
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
-        position: fixed;
-        left: -100%;
-        top: 0;
-        z-index: 1000;
-        background: white;
-      }
-
-      .sidebar.open {
-        left: 0;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유현하 이력서</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+    <style>
       body {
-        flex-direction: column;
+        font-family: 'Pretendard', 'Segoe UI', sans-serif;
+        background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+        min-height: 100vh;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="menu-toggle" onclick="toggleMenu()">☰ 메뉴</div>
-  <div class="sidebar">
-    <h3><a href="#basic">기본 정보</a></h3>
-    <ul>
-      <li><a href="#skills">기술 스택</a></li>
-      <li><a href="#career">경력</a></li>
-      <li><a href="#portpolio">포트폴리오</a></li>
-      <li><a href="#education">교육</a></li>
-      <li><a href="#cerificate">수상 및 자격</a></li>
-    </ul>
-  </div>
-
-  <div class="content">
-    <div class="section" id='basic'>
-      <div class="profile">
-        <div>
-          <div class="highlight">유현하 이력서</div>
-          <div class="subinfo">백엔드 개발자</div>
-          <p>이메일: yoohyunha@naver.com</p>
-          <p>
-            노션 이력서:  
-            <a href="https://www.dongyang.ac.kr" target="_blank">
-              Notion 이력서 링크
-            </a>
-          </p>
-        </div>
-        <img src="profile.jpg" alt="프로필 사진" class="photo" />
+      .sidebar {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 0 16px rgba(0,0,0,0.06);
+        padding: 32px 24px;
+        height: 100%;
+        min-width: 220px;
+        margin-right: 32px;
+      }
+      .sidebar .nav-link.active {
+        color: #0d6efd;
+        font-weight: bold;
+        background: #e7f1ff;
+        border-radius: 6px;
+      }
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #0d6efd;
+        margin-right: 24px;
+      }
+      .highlight {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #0d6efd;
+      }
+      .section {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        padding: 32px;
+        margin-bottom: 32px;
+      }
+      .url-box {
+        background: #f8f9fa;
+        border: 1px solid #e3e3e3;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-family: monospace;
+        margin-bottom: 8px;
+      }
+      @media (max-width: 991px) {
+        .sidebar {
+          margin-bottom: 24px;
+          margin-right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="row flex-lg-nowrap">
+        <nav class="col-lg-3 sidebar mb-4 mb-lg-0">
+          <h3 class="mb-4">유현하</h3>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link active" href="#basic">기본 정보</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">기술 스택</a></li>
+            <li class="nav-item"><a class="nav-link" href="#career">경력</a></li>
+            <li class="nav-item"><a class="nav-link" href="#portfolio">포트폴리오</a></li>
+            <li class="nav-item"><a class="nav-link" href="#education">교육</a></li>
+            <li class="nav-item"><a class="nav-link" href="#certificate">수상 및 자격</a></li>
+          </ul>
+        </nav>
+        <main class="col-lg-9">
+          <section class="section mb-4" id="basic">
+            <div class="d-flex align-items-center">
+              <img src="profile.jpg" class="profile-img me-4" alt="프로필 사진">
+              <div>
+                <div class="highlight mb-1">유현하 이력서</div>
+                <div class="mb-2 text-secondary">백엔드 개발자</div>
+                <div>이메일: <a href="mailto:yoohyunha@naver.com">yoohyunha@naver.com</a></div>
+                <div>노션 이력서: <a href="https://your-notion-link.com" target="_blank">Notion 이력서 링크</a></div>
+              </div>
+            </div>
+          </section>
+          <section class="section" id="skills">
+            <h2>기술 스택</h2>
+            <ul>
+              <li><b>Front End:</b> Next.js, React, TypeScript, Tailwind CSS, React Query, HTML5, CSS3</li>
+              <li><b>Back End:</b> Java, Kotlin, Python, Spring Boot, Node.js, REST API, 인증/결제 시스템, 실시간 채팅 서버, 데이터 크롤링/분석</li>
+              <li><b>시스템/인프라:</b> Linux, C, Raspberry Pi, WebSocket, TCP/IP, AWS</li>
+              <li><b>AR/VR:</b> Unity, C#</li>
+              <li><b>DB:</b> MySQL, Oracle</li>
+            </ul>
+          </section>
+          <section class="section" id="career">
+            <h2>경력</h2>
+            <p><strong>졸업작품 프로젝트</strong> - 실시간 협업 프로젝트 / 백엔드 개발 (2025.03 ~ 2025.12, 10개월)</p>
+            <ul>
+              <li>요구사항 분석 및 DB 모델링</li>
+              <li>AWS 기반 컴퓨팅 환경 구축</li>
+              <li>실시간 채팅 서버(C, pThread, Linux, Raspberry Pi)</li>
+              <li>Spring Boot 기반 게시판 구현</li>
+            </ul>
+          </section>
+          <section class="section" id="portfolio">
+            <h2>포트폴리오</h2>
+            <div>
+              <div><b>실시간 협업 플랫폼</b></div>
+              <div class="url-box">https://github.com/DMU-CMM-Final/main</div>
+              <div><b>스마트 냉장고 구현</b></div>
+              <div class="url-box">https://github.com/yoohyunha/smartRefrigerator</div>
+              <div><b>투두리스트 구현</b></div>
+              <div class="url-box">https://github.com/yoohyunha/todos</div>
+              <div><b>2D 점프 플랫포머 게임</b></div>
+              <div class="url-box">https://github.com/myth0629/Platformer-2024</div>
+            </div>
+          </section>
+          <section class="section" id="education">
+            <h2>교육</h2>
+            <ul>
+              <li><b>금천고등학교</b> (2020.03-2023.2)</li>
+              <li><b>동양미래대학교</b> 컴퓨터소프트웨어공학과 (2023.03-2026.2)</li>
+            </ul>
+          </section>
+          <section class="section" id="certificate">
+            <h2>수상 및 자격</h2>
+            <ul>
+              <li><b>전공동아리 CAN 활동</b> (2024.03-2026.2): Unity/C# 플랫포머 게임 개발</li>
+              <li><b>SQLD</b> (2025.04)</li>
+            </ul>
+          </section>
+        </main>
       </div>
     </div>
-
-    <div class="section" id="skills">
-      <h2>기술 스택</h2>
-      <p><strong>Front End</strong> : HTML5/CSS, javascript, React</p>
-      <p><strong>Backt End</strong> : Java, Kotlin, python, spring boot, node.js, REST API 서버 구축, 결제/인증 시스템 구현, 실시간 채팅 서버, 데이터 크롤링/분석 시스템</p>
-      <p><strong>시스템(인프라) 엔지니어</strong> : Linux, C, Raspberry PI, WebSocket, TCP/IP 소켓프로그래밍, AWS</p>
-      <p><strong>AR/VR</strong> : Unity, C#</p>
-      <p><strong>DB</strong> : MySQL, Oracle</p>
-    </div>
-
-    <div class="section" id="career">
-      <h2>경력</h2>
-      <p><strong>졸업작품 프로젝트</strong> - 실시간 협업 프로젝트 / 백엔드 개발 (2025.03 ~ 2025.12, 10개월)</p>
-      <p>∙ 요구사항 분석 및 DataBase 모델링</p>
-      <p>∙ AWS를 활용한 컴퓨팅 환경 구축</p>
-      <p>실시간 채팅 프로젝트(C, pThread, Linux, Raspberry PI) pThread를 활용한 채팅 서버 구현</p>
-      <p>∙ Raspberry PI의 Raspberry OS(Debian Linux)에서 pThread를 활용한 채팅 서버 구현</p>
-      <p>∙ TCP/IP Socket Programming</p>
-      <p>. spring boot를 활용한 게시판 구현</p>
-    </div>
-
-    <div class="section" id="portpolio">
-        <h2>포트폴리오</h2>
-        <p><strong>졸업 작품 - 실시간 협업 플랫폼</strong> </p>
-        <div class="url-box">
-            https://github.com/DMU-CMM-Final/main
-        </div>
-        <p><strong>투두리스트 구현</strong> </p>
-        <div class="url-box">
-          https://github.com/yoohyunha/todos
-        </div>
-        <p><strong>간단한 2D 점프 플랫포머 게임</strong> </p>
-        <div class="url-box">
-          https://github.com/myth0629/Platformer-2024
-        </div>
-    </div>
-
-    <div class="section" id="education">
-        <h2>교육</h2>
-      <p><strong>금천고등학교</strong> - (2020.03-2023.2)</p>
-        <p><strong>동양미래대학교</strong> - 컴퓨터소프트웨어공학과 (2023.03-2026.2)</p>
-        
-    </div>
-
-    <div class="section" id="cerificate">
-        <h2>수상 및 자격</h2>
-        <p><strong>전공동아리 CAN 활동</strong> - 컴퓨터소프트웨어공학과 작품개발 동아리 (2022.03-2026.2)</p>
-        <p>∙ 플랫포머 게임 개발 (Unity/C#)</p>
-        
-        
-        <p><strong>SQLD</strong> - (2025.4)</p>
-    </div>
-  </div>
-
-  <script>
-    const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.sidebar ul li a');
-    const content = document.querySelector('.content');
-
-    content.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (content.scrollTop >= sectionTop - 100) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    function toggleMenu() {
-      document.querySelector('.sidebar').classList.toggle('open');
-    }
-  </script>
-</body>
+  </body>
 </html>
