@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>유현하 이력서</title>
+  <!-- Bootstrap & Google Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -11,63 +12,179 @@
       font-family: 'Pretendard', 'Segoe UI', sans-serif;
       background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
       min-height: 100vh;
+      position: relative;
+    }
+    .resume-shadow {
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.95);
+      padding: 48px 40px;
+      margin: 32px auto;
+      max-width: 1050px;
     }
     .sidebar {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 0 16px rgba(0,0,0,0.06);
-      padding: 32px 24px;
-      height: 100%;
+      background: linear-gradient(135deg, #f8fafc 60%, #e0eafc 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      padding: 32px 20px;
       min-width: 220px;
-      margin-right: 32px;
+      margin-right: 36px;
+      position: sticky;
+      top: 32px;
+      height: fit-content;
+      transition: box-shadow 0.2s;
     }
-    .sidebar .nav-link.active {
-      color: #0d6efd;
-      font-weight: bold;
+    .sidebar .nav-link {
+      color: #495057;
+      font-weight: 500;
+      font-size: 1.08rem;
+      border-radius: 8px;
+      margin-bottom: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sidebar .nav-link.active,
+    .sidebar .nav-link:hover {
       background: #e7f1ff;
-      border-radius: 6px;
+      color: #0d6efd;
     }
     .profile-img {
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #0d6efd;
-      margin-right: 24px;
+      border: 4px solid #0d6efd;
+      box-shadow: 0 2px 12px rgba(13,110,253,0.12);
+      margin-right: 36px;
     }
     .highlight {
-      font-size: 2rem;
+      font-size: 2.3rem;
       font-weight: bold;
       color: #0d6efd;
+      letter-spacing: -1px;
+    }
+    .badge-role {
+      font-size: 1.1rem;
+      background: linear-gradient(90deg, #0d6efd 60%, #49c6e5 100%);
+      color: #fff;
+      border-radius: 8px;
+      padding: 5px 18px;
+      margin-bottom: 10px;
+      display: inline-block;
+      font-weight: 600;
     }
     .section {
       background: #fff;
-      border-radius: 12px;
+      border-radius: 16px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      padding: 32px;
-      margin-bottom: 32px;
+      padding: 36px 32px 28px 32px;
+      margin-bottom: 36px;
+      position: relative;
+      border-left: 5px solid #0d6efd;
+      transition: border-color 0.2s;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0d6efd;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+    .section ul, .section ol {
+      margin-bottom: 0;
     }
     .url-box {
       background: #f8f9fa;
       border: 1px solid #e3e3e3;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-family: monospace;
-      margin-bottom: 8px;
+      padding: 10px 15px;
+      border-radius: 7px;
+      font-family: 'Fira Mono', monospace;
+      margin-bottom: 10px;
+      font-size: 1.02rem;
+      word-break: break-all;
+      transition: border 0.2s;
+    }
+    .url-box:hover {
+      border: 1.5px solid #0d6efd;
+      background: #e7f1ff;
+    }
+    .timeline {
+      border-left: 3px solid #0d6efd;
+      margin-left: 8px;
+      padding-left: 24px;
+    }
+    .timeline-item {
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      background: #0d6efd;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(13,110,253,0.14);
+    }
+    .tag {
+      display: inline-block;
+      background: #e7f1ff;
+      color: #0d6efd;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 7px;
+      padding: 2px 10px;
+      margin-right: 7px;
+      margin-bottom: 4px;
+    }
+    .section table {
+      width: 100%;
+      margin-bottom: 0;
+    }
+    .section th, .section td {
+      padding: 8px 6px;
+      vertical-align: top;
+      font-size: 1.03rem;
+    }
+    .section th {
+      width: 120px;
+      color: #0d6efd;
+      font-weight: 600;
+      background: #f8f9fa;
+      border-radius: 7px;
     }
     @media (max-width: 991px) {
       .sidebar {
         margin-bottom: 24px;
         margin-right: 0;
+        position: static;
+      }
+      .resume-shadow {
+        padding: 24px 5vw;
+      }
+    }
+    @media (max-width: 767px) {
+      .profile-img {
+        width: 90px;
+        height: 90px;
+        margin-right: 16px;
+      }
+      .section {
+        padding: 18px 8px 16px 12px;
+      }
+      .resume-shadow {
+        padding: 10px 2vw;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container py-5">
+  <div class="resume-shadow">
     <div class="row flex-lg-nowrap">
       <nav class="col-lg-3 sidebar mb-4 mb-lg-0">
-        <h3 class="mb-4">유현하</h3>
+        <h3 class="mb-4 text-center">유현하</h3>
         <ul class="nav flex-column">
           <li class="nav-item"><a class="nav-link active" href="#basic">기본 정보</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills">기술 스택</a></li>
@@ -78,20 +195,59 @@
         </ul>
       </nav>
       <main class="col-lg-9">
+        <!-- 기본 정보 -->
         <section class="section mb-4" id="basic">
-          <div class="d-flex align-items-center">
-            <img src="profile.jpg" class="profile-img me-4" alt="프로필 사진">
+          <div class="d-flex align-items-center flex-wrap">
+            <img src="profile.jpg" class="profile-img me-4 mb-3 mb-md-0" alt="프로필 사진">
             <div>
-              <div class="highlight mb-1">유현하 이력서</div>
-              <div class="mb-2 text-secondary">백엔드 개발자</div>
-              <div>이메일: <a href="mailto:yoohyunha@naver.com">yoohyunha@naver.com</a></div>
-              <div>노션 이력서: <a href="https://your-notion-link.com" target="_blank">Notion 이력서 링크</a></div>
+              <div class="highlight mb-2">유현하 이력서</div>
+              <div class="badge-role">백엔드 개발자</div>
+              <table class="mt-2 mb-2">
+                <tr>
+                  <th>이메일</th>
+                  <td><a href="mailto:yoohyunha@naver.com">yoohyunha@naver.com</a></td>
+                </tr>
+                <tr>
+                  <th>노션 이력서</th>
+                  <td><a href="https://your-notion-link.com" target="_blank">Notion 이력서 링크</a></td>
+                </tr>
+                <tr>
+                  <th>GitHub</th>
+                  <td><a href="https://github.com/yoohyunha" target="_blank">github.com/yoohyunha</a></td>
+                </tr>
+              </table>
             </div>
           </div>
         </section>
+        <!-- 기술 스택 -->
         <section class="section" id="skills">
           <h2>기술 스택</h2>
-          <ul>
+          <div>
+            <span class="tag">Next.js</span>
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">React Query</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Java</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">Python</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">REST API</span>
+            <span class="tag">Linux</span>
+            <span class="tag">C</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">WebSocket</span>
+            <span class="tag">TCP/IP</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Oracle</span>
+          </div>
+          <ul class="mt-3">
             <li><b>Front End:</b> Next.js, React, TypeScript, Tailwind CSS, React Query, HTML5, CSS3</li>
             <li><b>Back End:</b> Java, Kotlin, Python, Spring Boot, Node.js, REST API, 인증/결제 시스템, 실시간 채팅 서버, 데이터 크롤링/분석</li>
             <li><b>시스템/인프라:</b> Linux, C, Raspberry Pi, WebSocket, TCP/IP, AWS</li>
@@ -99,34 +255,50 @@
             <li><b>DB:</b> MySQL, Oracle</li>
           </ul>
         </section>
+        <!-- 경력 -->
         <section class="section" id="career">
           <h2>경력</h2>
-          <p><strong>졸업작품 프로젝트</strong> - 실시간 협업 프로젝트 / 백엔드 개발 (2025.03 ~ 2025.12, 10개월)</p>
-          <ul>
-            <li>요구사항 분석 및 DB 모델링</li>
-            <li>AWS 기반 컴퓨팅 환경 구축</li>
-            <li>실시간 채팅 서버(C, pThread, Linux, Raspberry Pi)</li>
-            <li>Spring Boot 기반 게시판 구현</li>
-          </ul>
+          <div class="timeline">
+            <div class="timeline-item">
+              <b>졸업작품 프로젝트</b> <span class="text-secondary">(2025.03 ~ 2025.12, 10개월)</span><br>
+              <span class="text-primary">실시간 협업 프로젝트 / 백엔드 개발</span>
+              <ul class="mt-2">
+                <li>요구사항 분석 및 DB 모델링</li>
+                <li>AWS 기반 컴퓨팅 환경 구축 및 배포</li>
+                <li>실시간 채팅 서버(C, pThread, Linux, Raspberry Pi) 설계 및 구현</li>
+                <li>Spring Boot 기반 게시판/인증 시스템 개발</li>
+                <li>RESTful API 설계 및 보안 적용</li>
+              </ul>
+            </div>
+          </div>
         </section>
+        <!-- 포트폴리오 -->
         <section class="section" id="portfolio">
           <h2>포트폴리오</h2>
           <div>
             <div><b>실시간 협업 플랫폼</b></div>
-            <div class="url-box">https://github.com/DMU-CMM-Final/main</div>
+            <div class="url-box"><a href="https://github.com/DMU-CMM-Final/main" target="_blank">https://github.com/DMU-CMM-Final/main</a></div>
             <div><b>투두리스트 구현</b></div>
-            <div class="url-box">https://github.com/yoohyunha/todos</div>
+            <div class="url-box"><a href="https://github.com/yoohyunha/todos" target="_blank">https://github.com/yoohyunha/todos</a></div>
             <div><b>2D 점프 플랫포머 게임</b></div>
-            <div class="url-box">https://github.com/myth0629/Platformer-2024</div>
+            <div class="url-box"><a href="https://github.com/myth0629/Platformer-2024" target="_blank">https://github.com/myth0629/Platformer-2024</a></div>
           </div>
         </section>
+        <!-- 교육 -->
         <section class="section" id="education">
           <h2>교육</h2>
-          <ul>
-            <li><b>금천고등학교</b> (2020.03-2023.2)</li>
-            <li><b>동양미래대학교</b> 컴퓨터소프트웨어공학과 (2023.03-2026.2)</li>
-          </ul>
+          <table>
+            <tr>
+              <th>금천고등학교</th>
+              <td>2020.03 - 2023.2</td>
+            </tr>
+            <tr>
+              <th>동양미래대학교</th>
+              <td>컴퓨터소프트웨어공학과 (2023.03 - 2026.2)</td>
+            </tr>
+          </table>
         </section>
+        <!-- 수상 및 자격 -->
         <section class="section" id="certificate">
           <h2>수상 및 자격</h2>
           <ul>
@@ -137,5 +309,39 @@
       </main>
     </div>
   </div>
+  <script>
+    // 사이드바 active 메뉴 동적 표시
+    const navLinks = document.querySelectorAll('.sidebar .nav-link');
+    const sections = Array.from(document.querySelectorAll('main .section'));
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const scrollY = window.scrollY + 120;
+      sections.forEach(section => {
+        if (section.offsetTop <= scrollY) {
+          current = section.id;
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+    // 부드러운 스크롤
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').replace('#', '');
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 40,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
